@@ -1,0 +1,13 @@
+- name: Playbook for Releasing App on MediaWiki Servers
+  hosts: all
+  serial: 1
+  become: true
+  vars_files:
+    - ../group_vars/all
+  roles:
+    - ../../roles/apt
+    - ../../roles/mysql_db
+    - ../../roles/copy
+    - ../../roles/MediaWiki
+    - ../../roles/chown
+    - ../../roles/service

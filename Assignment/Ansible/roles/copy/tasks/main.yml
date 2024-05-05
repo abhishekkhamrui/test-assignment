@@ -1,0 +1,14 @@
+---
+# tasks file for copy
+- name : Removing Old Config
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  ignore_errors: yes
+- name: Copying Nginx Config
+  copy:
+    src: "{{src_path}}"
+    dest: "{{dest_path}}"
+    owner: "{{copy_owner}}"
+    group: "{{group_owner}}"
+    mode: "{{mode}}"

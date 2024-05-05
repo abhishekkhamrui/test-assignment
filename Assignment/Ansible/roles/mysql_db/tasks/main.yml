@@ -1,0 +1,13 @@
+---
+# tasks file for mysql_db
+- name: Create a new database with name {{db_name}}
+  mysql_db:
+    name: "{{db_name}}"
+    state: present
+
+- name: Create database user with name {{db_user}} and password ******* with all database privileges
+  mysql_user:
+    name: "{{db_user}}"
+    password: "{{db_pass}}"
+    priv: '*.*:ALL'
+    state: present

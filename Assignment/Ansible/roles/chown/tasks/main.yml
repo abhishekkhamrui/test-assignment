@@ -1,0 +1,4 @@
+---
+# tasks file for chmod
+- name: Changing Permission of the {{chown_path}} with  {{chown_user}} user and {{chown_group}} group
+  shell: chown -R {{chown_user}}:{{chown_group}} {{chown_path}}

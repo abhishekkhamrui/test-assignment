@@ -1,0 +1,17 @@
+repo_list: ['nginx','imagemagick','php7.2-fpm','php7.2-intl','php7.2-xml','php7.2-curl','php7.2-gd','php7.2-mbstring','php7.2-mysql','php7.2-mysql','php-apcu','php7.2-zip','mariadb-server-10.1','mariadb-server-core-10.1','python','python-pip','python3-pip','libmariadbclient-dev']
+db_name: mediawikidb
+db_user: mediawikiuser
+db_pass: mediawikipassword
+src_path: "../../../config/nginx-conf/media.conf"
+dest_path: "/etc/nginx/sites-enabled/media.conf"
+copy_owner: "root"
+group_owner: "root"
+mode: "777"
+wget_url: "https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.0.tar.gz"
+wget_dist: "/opt/mediawiki.tar.gz"
+unarchive_src: "/opt/mediawiki.tar.gz"
+unarchive_dest: "/var/www/"
+chown_user: www-data
+chown_group: www-data
+chown_path: "{{unarchive_dest}}/mediawiki"
+service_name: nginx

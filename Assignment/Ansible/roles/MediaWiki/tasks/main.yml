@@ -1,0 +1,15 @@
+---
+# tasks file for MediaWiki
+- name: Downloading Content from {{wget_url}}
+  get_url:
+    url: "{{wget_url}}"
+    dest: "{{wget_dist}}"
+    mode: 0755
+- name: Extract {{unarchive_src}} into {{unarchive_dest}}
+  unarchive:
+    src: "{{unarchive_src}}"
+    dest: "{{unarchive_dest}}"
+    remote_src: "yes"
+- name : Changing Zip for naming convention
+  shell: mv /var/www/mediawiki-* /var/www/mediawiki
+  ignore_errors: yes
